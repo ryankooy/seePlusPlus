@@ -1,0 +1,11 @@
+PS C:\Users\Ry\Desktop\C++> python lexical.py        
+  File "C:\Users\Ry\Desktop\C++\lexical.py", line 65 
+    if next_ch() == '\':
+                        ^
+SyntaxError: EOL while scanning string literal       
+PS C:\Users\Ry\Desktop\C++> python lexical.py /      
+  File "C:\Users\Ry\Desktop\C++\lexical.py", line 65 
+    if next_ch() == '\':
+                        ^
+SyntaxError: EOL while scanning string literal       
+PS C:\Users\Ry\Desktop\C++>
