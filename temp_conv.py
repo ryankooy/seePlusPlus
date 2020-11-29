@@ -27,26 +27,30 @@ class Temperature:
 		self.celsius = Temperature.f_to_c(value)
 		
 	def print_results(self):
-		print('\n--------------------------')
-		print(f'C°: {self.celsius}\nF°: {self.fahrenheit}')
-		print('--------------------------')
+		print('\n|------------------|')
+		print('|      %.1f°C\n|      %.1f°F' % (self.celsius, self.fahrenheit))
+		print('|------------------|')
 		
 if __name__ == '__main__':
 	while True:
-		text = input('\nEnter a temperature followed by [C] for Celsius or [F] for Fahrenheit.\nEnter [X] to exit:\n')
-		if text.isnumeric():
-			temp = int(text.strip())
+		prompt = '\nEnter a temperature followed by [C] for Celsius or [F] for Fahrenheit.\nEnter [X] to exit:\n'
+		ans = input(prompt).strip()
+		if ans.isnumeric():
+			temp = int(ans)
 			t = Temperature(temp)
 			t.print_results()
-		elif text.isalpha():
-			if text.lower() == 'x':
+		elif ans.isalpha():
+			if ans.lower() == 'x':
 				print('Bye.')
 				exit()
 			else:
 				continue
 		else:
-			temp = int(''.join([i for i in text if i.isdigit()]))
-			f_or_c = ''.join([i for i in text if i.isalpha()]).strip()
+			try:
+				temp = int(''.join([i for i in ans if i.isdigit()]))
+			except:
+				continue
+			f_or_c = ''.join([i for i in ans if i.isalpha()])
 			fc = f_or_c.lower()
 			t = Temperature(temp)
 			if fc == 'c':
